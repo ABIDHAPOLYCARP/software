@@ -1,0 +1,42 @@
+def validate_voter_age(age):
+    """
+    Check if the age is valid for voting.
+
+    Parameters:
+    age (int): The age of the person to be checked.
+
+    Returns:
+    str: A message indicating if the person is eligible to vote.
+    """
+    if age < 0:
+        return "Age cannot be negative."  # Handle negative age input
+    elif age < 18:
+        return "Not eligible to vote."  # Handle age less than 18
+    else:
+        return "Eligible to vote."  # Handle age 18 or above
+
+def get_age_input():
+    """
+    Get a valid age input from the user.
+
+    Returns:
+    int: A valid age input from the user.
+    """
+    while True:
+        try:
+            age = int(input("Enter your age: "))  # Prompt user for age
+            return age
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")  # Handle non-integer input
+
+def main():
+    """
+    Main function to run the voter eligibility checker.
+    """
+    print("Welcome to the Voter Eligibility Checker!")  # Welcome message
+    age = get_age_input()  # Get valid age input from user
+    result = validate_voter_age(age)  # Validate the age
+    print(result)  # Print the validation result
+
+if __name__ == "__main__":
+    main()  # Execute the main function
